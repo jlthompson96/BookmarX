@@ -1,4 +1,4 @@
-package com.apollo.bookmarx.bookmarx.controller;
+package com.apollo.bookmarx.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

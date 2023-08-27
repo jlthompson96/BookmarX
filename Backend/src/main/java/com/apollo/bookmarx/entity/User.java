@@ -1,4 +1,4 @@
-package com.apollo.bookmarx.bookmarx.entity;
+package com.apollo.bookmarx.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
