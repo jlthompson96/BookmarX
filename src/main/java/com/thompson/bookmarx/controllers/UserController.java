@@ -13,6 +13,7 @@ public class UserController {
 
     @GetMapping(URLs.USER_LIST)
     public String userList() {
+        log.info("---- Entering userList() ----");
         return "User List";
     }
 }
