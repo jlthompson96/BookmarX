@@ -1,10 +1,10 @@
-package com.thompson.bookmark;
+package com.thompson.bookmarx;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BookmarkApplicationTests {
+class BookmarXApplicationTests {
 
 	@Test
 	void contextLoads() {

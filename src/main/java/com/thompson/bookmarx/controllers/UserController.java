@@ -1,6 +1,6 @@
-package com.thompson.bookmark.controllers;
+package com.thompson.bookmarx.controllers;
 
-import com.thompson.bookmark.common.URLs;
+import com.thompson.bookmarx.common.URLs;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +13,7 @@ public class UserController {
 
     @GetMapping(URLs.USER_LIST)
     public String userList() {
+        log.info("---- Entering userList() ----");
         return "User List";
     }
 }
