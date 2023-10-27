@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_BookmarX_Backend_1698430709822-pr-trigger-input-set
+  identifier: Build_BookmarX_Backend_1698430709822prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: BookmarX
+  pipeline:
+    identifier: Build_BookmarX_Backend_1698430709822
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
