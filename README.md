@@ -1,6 +1,5 @@
 # BookmarX Backend
 A social media based book tracker
-- Frontend and Backend are seperated by branches.
 
 ## Goals
 - [ ] User Profiles
