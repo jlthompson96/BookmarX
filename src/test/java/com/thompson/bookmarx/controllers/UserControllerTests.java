@@ -15,12 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-class UserControllerTest {
+class UserControllerTests {
 
     @InjectMocks
     UserController userController;
@@ -32,6 +31,13 @@ class UserControllerTest {
     @Test
     void test_getUserList() {
         when(userService.getUserList()).thenReturn(new ArrayList<>());
+        ResponseEntity<List<UserEntity>> response = userController.getUserList();
+        assertNotNull(response);
+    }
+
+    @Test
+    void test_getUserList_exception() {
+        when(userService.getUserList()).thenThrow(new RuntimeException());
         ResponseEntity<List<UserEntity>> response = userController.getUserList();
         assertNotNull(response);
     }
