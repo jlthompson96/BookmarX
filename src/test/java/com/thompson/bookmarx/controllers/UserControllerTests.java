@@ -41,4 +41,18 @@ class UserControllerTests {
         ResponseEntity<List<UserEntity>> response = userController.getUserList();
         assertNotNull(response);
     }
+
+    @Test
+    void test_createUser() {
+        when(userService.createUser(new UserEntity())).thenReturn(new UserEntity());
+        ResponseEntity<UserEntity> response = userController.createUser(new UserEntity());
+        assertNotNull(response);
+    }
+
+    @Test
+    void test_createUser_exception() {
+        when(userService.createUser(new UserEntity())).thenThrow(new RuntimeException());
+        ResponseEntity<UserEntity> response = userController.createUser(new UserEntity());
+        assertNotNull(response);
+    }
 }
