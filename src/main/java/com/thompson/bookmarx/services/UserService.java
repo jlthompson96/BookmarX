@@ -31,4 +31,15 @@ public class UserService {
             return Collections.emptyList();
         }
     }
+
+    public UserEntity createUser(UserEntity userEntity) {
+        try {
+            log.info("---- Entering createUser() ----");
+            return userRepository.save(userEntity);
+        } catch (Exception e) {
+            log.error("---- Error in createUser() ----");
+            log.error(e.getMessage());
+            return null;
+        }
+    }
 }

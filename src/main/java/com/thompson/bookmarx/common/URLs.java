@@ -7,4 +7,5 @@ public interface URLs {
 
     //Dynamic Data
     String USER_LIST = "/userList";
+    String USER_CREATE = "/userCreate";
 }

@@ -7,10 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,18 @@ public class UserController {
             return new ResponseEntity<>(userService.getUserList(), HttpStatus.OK);
         } catch (Exception e) {
             log.error("---- Error in userList() ----");
+            log.error(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping(URLs.USER_CREATE)
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity){
+        log.info("---- Entering createUser() ----");
+        try {
+            return new ResponseEntity<>(userService.createUser(userEntity), HttpStatus.OK);
+        } catch (Exception e) {
+            log.error("---- Error in createUser() ----");
             log.error(e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
