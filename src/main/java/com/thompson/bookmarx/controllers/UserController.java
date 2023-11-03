@@ -21,7 +21,7 @@ public class UserController {
     UserService userService;
 
     @GetMapping(URLs.USER_LIST)
-    public ResponseEntity<List<UserEntity>> getUserList(){
+    public ResponseEntity<List<UserEntity>> getUserList() {
         log.info("---- Entering userList() ----");
         try {
             return new ResponseEntity<>(userService.getUserList(), HttpStatus.OK);
@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping(URLs.USER_CREATE)
-    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity){
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity) {
         log.info("---- Entering createUser() ----");
         try {
             return new ResponseEntity<>(userService.createUser(userEntity), HttpStatus.OK);
