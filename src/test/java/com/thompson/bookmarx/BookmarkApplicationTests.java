@@ -9,29 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 class BookmarXApplicationTests {
 
-	import org.junit.jupiter.api.Test;
-	import org.springframework.beans.factory.annotation.Autowired;
-	import org.springframework.boot.test.context.SpringBootTest;
-	
-	import static org.junit.jupiter.api.Assertions.assertNotNull;
-	
-	@SpringBootTest
-	class BookmarXApplicationTests {
-	
-	    @Autowired
-	    BookmarXApplication bookmarXApplication;
-	
-	    @Test
-	    void contextLoads() {
-	        assertNotNull(bookmarXApplication);
-	    }
-	
-	}
-	BookmarXApplication bookmarXApplication;
+    @Autowired
+    BookmarXApplication bookmarXApplication;
 
-	@Test
-	void contextLoads() {
-		assertNotNull(bookmarXApplication);
-	}
+    @Test
+    void contextLoads() {
+        assertNotNull(bookmarXApplication);
+    }
 
 }
+
