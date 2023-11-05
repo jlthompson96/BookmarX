@@ -1,0 +1,7 @@
+pipeline:
+  release:
+    stages:
+      - step:
+          name: build
+          script:
+            - gradle build
