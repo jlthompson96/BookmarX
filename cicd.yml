@@ -1,0 +1,9 @@
+pipelines:
+  release:
+    stages:
+      - name: build
+        disable: false
+      - name: test
+        disable: false
+      - name: deploy
+        disable: false
