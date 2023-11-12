@@ -1,23 +1,40 @@
-#pipeline {
-#    agent any
-#    tools {
-#        gradle "Gradle 8.4"
-#    }
-#    stages {
-#        stage ('Checkout') {
-#            steps {
-#                checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jlthompson96/BookmarX_Backend']])
-#            }
-#        }
-#        stage ('Build') {
-#            steps {
-#                sh 'gradle clean build'
-#            }
-#        }
-#        stage ('Test') {
-#            steps {
-#                sh 'gradle test package'
-#            }
-#        }
-#    }
-#}
+stages:
+    - build
+    - test
+    - sonarcloud
+    - deploy
+
+variables:
+    GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=false"
+
+before_script:
+    - chmod +x ./gradlew
+
+build:
+    stage: build
+    script:
+        - ./gradlew build
+
+test:
+    stage: test
+    script:
+        - ./gradlew test jacocoTestReport
+    artifacts:
+        reports:
+            junit: build/test-results/test
+
+sonarcloud:
+    stage: sonarcloud
+    script:
+        - ./gradlew sonarqube -Dsonar.organization=jlthompson96 -Dsonar.projectKey=jlthompson96_BookmarX_Backend
+
+deploy:
+    stage: deploy
+    script:
+        - echo $GCLOUD_SERVICE_KEY_JSON > gcp-key.json
+        - gcloud auth activate-service-account --key-file=gcp-key.json
+        - gcloud config set project <your-gcp-project-id>
+        - gcloud auth configure-docker
+        - docker build -t gcr.io/<your-gcp-project-id>/<your-image-name> .
+        - docker push gcr.io/<your-gcp-project-id>/<your-image-name>
+        - gcloud run deploy <your-app-name> --image=gcr.io/<your-gcp-project-id>/<your-image-name> --platform=managed --region=<your-gcp-region>
