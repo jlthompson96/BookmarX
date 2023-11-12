@@ -1,3 +1,9 @@
+pipeline:
+    agent:
+        any
+    environment:
+        JDK_17: 'JDK 17'
+
 stages:
     - build
     - test
