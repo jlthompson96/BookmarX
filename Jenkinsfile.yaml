@@ -1,23 +1,23 @@
-pipeline {
-    agent any
-    tools {
-        gradle "Gradle 8.4"
-    }
-    stages {
-        stage ('Checkout') {
-            steps {
-                checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jlthompson96/BookmarX_Backend']])
-            }
-        }
-        stage ('Build') {
-            steps {
-                sh 'gradle clean build'
-            }
-        }
-        stage ('Test') {
-            steps {
-                sh 'gradle test package'
-            }
-        }
-    }
-}
+#pipeline {
+#    agent any
+#    tools {
+#        gradle "Gradle 8.4"
+#    }
+#    stages {
+#        stage ('Checkout') {
+#            steps {
+#                checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jlthompson96/BookmarX_Backend']])
+#            }
+#        }
+#        stage ('Build') {
+#            steps {
+#                sh 'gradle clean build'
+#            }
+#        }
+#        stage ('Test') {
+#            steps {
+#                sh 'gradle test package'
+#            }
+#        }
+#    }
+#}
