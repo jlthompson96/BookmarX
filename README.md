@@ -8,7 +8,7 @@ Spring Backend.
 ## Goals
 - [ ] User Profiles
 - [ ] Track books based on read and want to read
-- [ ] Follow other Users and see activites andr recommendations
+- [ ] Follow other Users and see activities and recommendations
 - [ ] Book reviews
 
 ## Technologies
